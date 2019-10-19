@@ -1,0 +1,23 @@
+Aplicação: Gerenciamento de ficha de academia
+
+Funcionalidade, gerir as fichas de exercicios para os alunos.
+Qualquer funcionario poderá cadastrar Exercicios no sistema, mas somente o professor que tiver a modalide musculação poderá criar fichas para os alunos]
+
+Objetivo: É deixar de forma facil e rapida o gerenciamento de fichar, evitando utilização de papel.
+
+Modelagem de entidade: 
+
+Funcionario: Classe generica para gestão da academia
+
+Professor: Classe que extende de funcionario (Pode ter ou n~~ão permissao para criar ficha de aluno dependendo da sua modalidade)
+
+Aluno: Classe para gerenciar o aluno
+
+Modalidade: Classe para gerenciar o tipo de professor
+
+Ficha: Classe para o aluno consultar os exercicios disponiveis para o aluno
+
+Item_Ficha: Classe para não ser realizados alteracoes diretas no exercicio
+
+Exercicio: Classe para gerenciar os exercicios que os alunos poderão executar, e somente professor pode criar
+
