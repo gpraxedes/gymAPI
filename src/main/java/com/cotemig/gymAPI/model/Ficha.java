@@ -15,9 +15,9 @@ public class Ficha {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
-	private TipoFichaEnum tipoFicha;
+	private String tipoFicha; //HIPERTROFIA, EMAGRECIMENT0, DEFINIÇÃO;
 	
-	private FichaEnum ficha;
+	private String fichaLetra;
 	
 	@OneToOne
 	private Professor professor;
@@ -30,20 +30,20 @@ public class Ficha {
 	
 	private Boolean ativo;
 
-	public TipoFichaEnum getTipoFicha() {
+	public String getTipoFicha() {
 		return tipoFicha;
 	}
 
-	public void setTipoFicha(TipoFichaEnum tipoFicha) {
+	public void setTipoFicha(String tipoFicha) {
 		this.tipoFicha = tipoFicha;
 	}
 
-	public FichaEnum getFicha() {
-		return ficha;
+	public String getFichaLetra() {
+		return fichaLetra;
 	}
 
-	public void setFicha(FichaEnum ficha) {
-		this.ficha = ficha;
+	public void setFichaLetra(String fichaLetra) {
+		this.fichaLetra = fichaLetra;
 	}
 
 	public Professor getProfessor() {
@@ -66,8 +66,15 @@ public class Ficha {
 		return itens;
 	}
 
+	public void setItem(ItemFicha item) {
+		this.itens.add(item);
+	}
+	
 	public void setItens(List<ItemFicha> itens) {
-		this.itens = itens;
+
+		for (ItemFicha item : itens) {
+			setItem(item);
+		}
 	}
 
 	public Boolean getAtivo() {
@@ -81,7 +88,6 @@ public class Ficha {
 	public Integer getId() {
 		return id;
 	}
-	
 
 	
 }

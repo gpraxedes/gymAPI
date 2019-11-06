@@ -13,10 +13,15 @@ public class Professor extends Funcionario {
 		return modalidades;
 	}
 
-	public void setModalidades(Modalidade modalidades) {
-		this.modalidades.add(modalidades);
+	public void setModalidade(Modalidade modalidade) {
+		this.modalidades.add(modalidade);
 	}
 	
-	
+	public void setModalidades(List<Modalidade> modalidades) {
+
+		for(Modalidade modalidade : modalidades) {
+			setModalidade(modalidade);
+		}
+	}
 	
 }
