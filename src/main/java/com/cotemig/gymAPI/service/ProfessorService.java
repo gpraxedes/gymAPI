@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.cotemig.gymAPI.model.Professor;
 import com.cotemig.gymAPI.repository.ProfessorRepository;
 
-@Service("ProfessorService")
+@Service("professorService")
 public class ProfessorService implements IProfessorService{
 
 	@Autowired
