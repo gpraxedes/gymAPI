@@ -1,9 +1,13 @@
 package com.cotemig.gymAPI.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.Null;
 
+@Entity
 public class Modalidade {
 
 	@Id
@@ -13,6 +17,10 @@ public class Modalidade {
 	private String nome;
 
 	private Boolean aerobico;
+	
+	@Null
+	@ManyToOne
+	private Professor professor;
 
 	public Integer getId() {
 		return id;

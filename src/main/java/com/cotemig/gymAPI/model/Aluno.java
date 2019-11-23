@@ -1,9 +1,18 @@
 package com.cotemig.gymAPI.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.Null;
+//import javax.persistence.JoinColumn;
+//import javax.persistence.ManyToOne;
 
+@Entity
 public class Aluno {
 
 	@Id
@@ -19,8 +28,10 @@ public class Aluno {
 	private Double altura;
 
 	private Double peso;
-
-	private Boolean ativo;
+	
+	@Null
+	@OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
+	private List<Ficha> fichas;
 
 	public String getNome() {
 		return nome;
@@ -62,17 +73,17 @@ public class Aluno {
 		this.peso = peso;
 	}
 
-	public Boolean getAtivo() {
-		return ativo;
-	}
-
-	public void setAtivo(Boolean ativo) {
-		this.ativo = ativo;
-	}
-
 	public Integer getId() {
 		return id;
 	}
 
+	public List<Ficha> getFichas() {
+		return this.fichas;
+	}
+
+	public void setFicha(Ficha ficha) {
+		this.fichas.add(ficha);
+	}
 	
+
 }

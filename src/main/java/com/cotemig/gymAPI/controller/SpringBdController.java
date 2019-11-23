@@ -1,5 +1,7 @@
 package com.cotemig.gymAPI.controller;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,9 +85,23 @@ public class SpringBdController {
 			return "error";
 		}
 
-		alunoService.deleteAlunoById(aluno.getId());
+		Optional<Aluno> alunoOptional = alunoService.getAlunoById(aluno.getId());
 
-		return "redirect:";
+		String mensagem = "Aluno id: " + alunoOptional.get().getId();
+
+		if (alunoOptional.isPresent()) {
+			
+			alunoService.deleteAlunoById(aluno.getId());
+			
+			return mensagem + " deletado com sucesso";
+			
+		} else {
+			
+			return mensagem + " não encontrado";
+			
+		}
+		
+		
 	}
 
 	@RequestMapping(value = "/updateAluno", method = RequestMethod.GET)
@@ -115,6 +131,14 @@ public class SpringBdController {
 		return mav;
 	}
 
+	@RequestMapping(value = "/readAluno", method = RequestMethod.GET)
+	public ModelAndView readAluno(Integer id) {
+
+		ModelAndView mav = new ModelAndView("readAluno");
+		mav.addObject("alunos", alunoService.getAlunoById(id));
+		return mav;
+	}
+	
 	// Exercicio
 
 	@RequestMapping(value = "/insertExercicio", method = RequestMethod.GET)
@@ -380,8 +404,8 @@ public class SpringBdController {
 		return "redirect:";
 	}
 
-	//por id
-	@RequestMapping(value = "/readItensFichaa", method = RequestMethod.GET)
+	// por id
+	@RequestMapping(value = "/readItensFicha", method = RequestMethod.GET)
 	public ModelAndView readItemFichas() {
 
 		ModelAndView mav = new ModelAndView("readItemFichas");

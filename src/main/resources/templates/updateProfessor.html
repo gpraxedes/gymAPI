@@ -1,0 +1,26 @@
+<html>
+	<head>
+	    <title>Atualizar Professor</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<form action="/updateProfessor" method="POST" modelAttribute="professor">
+		
+			ID:<br>
+  			<input type="text" name="id" th:value="${professor.id}" readOnly="true"><br>
+  			<br>
+  			Nome:<br>
+  			<input type="text" name="nome" th:value="${professor.nome}"><br>
+  			<br>
+  			CPF:<br>
+  			<input type="text" name="cpf" th:value="${professor.cpf}"><br>
+  			<br>
+  			Idade:<br>
+  			<input type="text" name="idade" th:value="${professor.idade}"><br>
+  			<br> 
+  			<br>
+  			<input type="submit" value="Atualizar">
+		</form>
+		
+	</body>
+</html>

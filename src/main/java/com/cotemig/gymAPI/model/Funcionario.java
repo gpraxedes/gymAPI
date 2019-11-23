@@ -1,9 +1,11 @@
 package com.cotemig.gymAPI.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Funcionario {
 
 	@Id
@@ -15,8 +17,6 @@ public class Funcionario {
 	private Integer idade;
 
 	private Long cpf;
-
-	private Boolean ativo;
 
 	public Integer getId() {
 		return id;
@@ -45,14 +45,5 @@ public class Funcionario {
 	public void setCpf(Long cpf) {
 		this.cpf = cpf;
 	}
-
-	public Boolean getAtivo() {
-		return ativo;
-	}
-
-	public void setAtivo(Boolean ativo) {
-		this.ativo = ativo;
-	}
-	
 
 }

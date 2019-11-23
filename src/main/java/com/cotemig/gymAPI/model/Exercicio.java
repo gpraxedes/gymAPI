@@ -1,9 +1,13 @@
 package com.cotemig.gymAPI.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.Null;
 
+@Entity
 public class Exercicio {
 
 	@Id
@@ -14,8 +18,10 @@ public class Exercicio {
 	
 	private String descricao;
 	
-	private Boolean ativo;
-
+	@Null
+	@ManyToOne
+	private ItemFicha item;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -36,13 +42,14 @@ public class Exercicio {
 		this.descricao = descricao;
 	}
 
-	public Boolean getAtivo() {
-		return ativo;
+	public ItemFicha getItem() {
+		return item;
 	}
 
-	public void setAtivo(Boolean ativo) {
-		this.ativo = ativo;
+	public void setItem(ItemFicha item) {
+		this.item = item;
 	}
+
 	
 	
 }

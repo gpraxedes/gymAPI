@@ -1,0 +1,30 @@
+<html>
+	<head>
+	    <title>Deletar Aluno</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<form action="/deleteAluno" method="POST" modelAttribute="aluno">
+		
+			ID:<br>
+  			<input type="text" name="id" th:value="${aluno.id}" readOnly="true"><br>
+  			<br>
+  			Nome:<br>
+  			<input type="text" name="nome" th:value="${aluno.nome}" readOnly="true"><br>
+  			<br>
+  			CPF:<br>
+  			<input type="text" name="cpf" th:value="${aluno.cpf}" readOnly="true"><br>
+  			<br>
+  			Idade:<br>
+  			<input type="text" name="idade" th:value="${aluno.idade}" readOnly="true"><br>
+  			<br>
+  			Altura:<br>
+  			<input type="text" name="altura" th:value="${aluno.altura}" readOnly="true"><br>
+  			<br>
+  			Peso:<br>
+  			<input type="text" name="peso" th:value="${aluno.peso}" readOnly="true"><br>
+  			<br>
+  			<input type="submit" value="Deletar">
+		</form>
+	</body>
+</html>

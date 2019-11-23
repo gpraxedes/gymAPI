@@ -39,10 +39,9 @@ public class ProfessorService implements IProfessorService{
 	public void updateProfessorById(Integer id, Professor professor) {
 
 		 Optional<Professor> getProfessor = getProfessorById(id);
-		 getProfessor.get().setAtivo(professor.getAtivo());
 		 getProfessor.get().setCpf(professor.getCpf());
 		 getProfessor.get().setIdade(professor.getIdade());
-		 getProfessor.get().setModalidades(professor.getModalidades());
+//		 getProfessor.get().setModalidades(professor.getModalidades());
 		 getProfessor.get().setNome(professor.getNome());
 		 
 		 repository.save(getProfessor.get());

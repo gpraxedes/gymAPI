@@ -41,7 +41,7 @@ public class FuncionarioService implements IFuncionarioService{
 		 Optional<Funcionario> getFuncionario = getFuncionarioById(id);
 		 
 		 getFuncionario.get().setNome(funcionario.getNome());
-		 getFuncionario.get().setAtivo(funcionario.getAtivo());
+//		 getFuncionario.get().setAtivo(funcionario.getAtivo());
 		 getFuncionario.get().setCpf(funcionario.getCpf());
 		 getFuncionario.get().setIdade(funcionario.getIdade());
 		 

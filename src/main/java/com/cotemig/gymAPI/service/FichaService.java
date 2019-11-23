@@ -40,11 +40,11 @@ public class FichaService implements IFichaService{
 
 		 Optional<Ficha> getFicha = getFichaById(id);
 		 getFicha.get().setTipoFicha(ficha.getTipoFicha());
-		 getFicha.get().setAluno(ficha.getAluno());
-		 getFicha.get().setAtivo(ficha.getAtivo());
+//		 getFicha.get().setAluno(ficha.getAluno());
+//		 getFicha.get().setAtivo(ficha.getAtivo());
 		 getFicha.get().setFichaLetra(ficha.getFichaLetra());
-		 getFicha.get().setItens(ficha.getItens());
-		 getFicha.get().setProfessor(ficha.getProfessor());
+//		 getFicha.get().setItens(ficha.getItens());
+//		 getFicha.get().setProfessor(ficha.getProfessor());
 		 getFicha.get().setTipoFicha(ficha.getTipoFicha());
 		 
 		 repository.save(getFicha.get());

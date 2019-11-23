@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.cotemig.gymAPI.model.Exercicio;;
 
-
 @Repository("exercicioRepository")
 public interface ExercicioRepository extends JpaRepository<Exercicio, Integer> {
 

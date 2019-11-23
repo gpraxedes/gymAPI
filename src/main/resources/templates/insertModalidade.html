@@ -1,0 +1,20 @@
+<html>
+	<head>
+	    <title>Inserir Modalidade</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<form action="/insertTime" method="POST" modelAttribute="exercicio">
+		
+  			Nome:<br>
+  			<input type="text" name="nome"><br>
+  			<br>
+  			Aerobico:<br>
+  			<input type="checkbox" name="active" th:checked="${modalidade.aerobico}"><br>
+  			<br>
+  			<br>
+  			
+  			<input type="submit" value="Inserir">
+		</form>
+	</body>
+</html>

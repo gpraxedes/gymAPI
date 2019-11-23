@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>Ver todos Times</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <style>
+		table, th, td {
+		  border: 1px solid black;
+		  border-collapse: collapse;
+		}
+		</style>
+	</head>
+	<body>
+	<a href="insertTime">Inserir novo Time</a> | <a href="/">Voltar</a> <br/><br/>
+		<table style="width:100%">
+			<tr>
+			    <th>ID</td>
+			    <th>Nome</td>
+			    <th>Excluir?</td>
+			    <th>Alterar?</td>
+			</tr>
+			<tr th:each="time : ${times}">
+			    <td th:text="${time.id}"></td>
+			    <td th:text="${time.nome}"></td>
+			    <td><a th:href="@{deleteTime(id=${time.id})}">Deletar</a></td>
+			    <td><a th:href="@{updateTime(id=${time.id})}">Alterar</a></td>
+			</tr>
+		</table>
+	</body>
+</html>

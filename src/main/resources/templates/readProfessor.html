@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>Professores</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<a href="insertProfessor">Inserir Professor</a>
+		<table style="width:100%">
+			<tr>
+			
+			    <th>ID</td>
+			    <th>Nome</td>
+			    <th>Idade</td>
+			    <th>CPF</td>
+			    <th>Excluir?</td>
+			    <th>Alterar?</td>
+			</tr>
+			<tr th:each="professor : ${professores}">
+			    <td th:text="${professor.id}"></td>
+			    <td th:text="${professor.nome}"></td>
+			    <td th:text="${professor.idade}"></td>
+			    <td th:text="${professor.cpf}"></td>
+			   
+			    <td><a th:href="@{deleteProfessor(id=${professor.id})}">Deletar</a></td>
+			    <td><a th:href="@{updateProfessor(id=${professor.id})}">Alterar</a></td>
+			</tr>
+		</table>
+	</body>
+</html>

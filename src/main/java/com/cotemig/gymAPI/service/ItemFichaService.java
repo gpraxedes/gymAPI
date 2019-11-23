@@ -41,7 +41,7 @@ public class ItemFichaService implements IItemFichaService{
 		 Optional<ItemFicha> getItemFicha = getItemFichaById(id);
 		 getItemFicha.get().setDescanso(itemFicha.getDescanso());
 		 getItemFicha.get().setDescricao(itemFicha.getDescricao());
-		 getItemFicha.get().setExercicio(itemFicha.getExercicio());
+//		 getItemFicha.get().setExercicio(itemFicha.getExercicio());
 		 getItemFicha.get().setRepeticao(itemFicha.getRepeticao());
 		 getItemFicha.get().setSerie(itemFicha.getSerie());
 		 
