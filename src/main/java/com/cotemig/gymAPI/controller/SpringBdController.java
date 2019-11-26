@@ -85,23 +85,10 @@ public class SpringBdController {
 			return "error";
 		}
 
-		Optional<Aluno> alunoOptional = alunoService.getAlunoById(aluno.getId());
+		alunoService.deleteAlunoById(aluno.getId());
 
-		String mensagem = "Aluno id: " + alunoOptional.get().getId();
+		return "redirect:";
 
-		if (alunoOptional.isPresent()) {
-			
-			alunoService.deleteAlunoById(aluno.getId());
-			
-			return mensagem + " deletado com sucesso";
-			
-		} else {
-			
-			return mensagem + " não encontrado";
-			
-		}
-		
-		
 	}
 
 	@RequestMapping(value = "/updateAluno", method = RequestMethod.GET)
@@ -558,5 +545,19 @@ public class SpringBdController {
 		mav.addObject("alunos", alunoService.getAllAlunos());
 		return mav;
 	}
+	
+	@RequestMapping(value = "/painelAdm", method = RequestMethod.GET)
+	public ModelAndView painelAdm() {
+
+		ModelAndView mav = new ModelAndView("painelAdm");
+		return mav;
+	}
+	
+//	@RequestMapping(value = "/painelAdm", method = RequestMethod.GET)
+//	public ModelAndView painelAdm() {
+//
+//		ModelAndView mav = new ModelAndView("painelAdm");
+//		return mav;
+//	}
 
 }

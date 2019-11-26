@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>Modalidades</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<a href="insertModalide">Inserir Modalidade</a>
+		<table style="width:100%">
+			<tr>
+			
+			    <th>ID</td>
+			    <th>Nome</td>
+			    <th>Descricao</td>
+			    <th>Excluir?</td>
+			    <th>Alterar?</td>
+			</tr>
+			<tr th:each="exercicio : ${exercicios}">
+			    <td th:text="${exercicio.id}"></td>
+			    <td th:text="${exercicio.nome}"></td>
+			    <td th:text="${exercicio.descricao}"></td>
+			   
+			    <td><a th:href="@{deleteExercicio(id=${exercicio.id})}">Deletar</a></td>
+			    <td><a th:href="@{updateExercicio(id=${exercicio.id})}">Alterar</a></td>
+			</tr>
+		</table>
+	</body>
+</html>

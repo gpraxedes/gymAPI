@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>Modalidades</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<a href="insertModalide">Inserir Modalidade</a>
+		<table style="width:100%">
+			<tr>
+			
+			    <th>ID</td>
+			    <th>Nome</td>
+			    <th>Aerobico</td>
+			    <th>Excluir?</td>
+			    <th>Alterar?</td>
+			</tr>
+			<tr th:each="modalidade : ${modalidades}">
+			    <td th:text="${modalidade.id}"></td>
+			    <td th:text="${modalidade.nome}"></td>
+			    <td th:text="${modalidade.aerobico}"></td>
+			   
+			    <td><a th:href="@{deleteModalidade(id=${modalidade.id})}">Deletar</a></td>
+			    <td><a th:href="@{updateModalidade(id=${modalidade.id})}">Alterar</a></td>
+			</tr>
+		</table>
+	</body>
+</html>
