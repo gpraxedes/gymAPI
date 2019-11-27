@@ -1,10 +1,10 @@
 <html>
 	<head>
-	    <title>Inserir Aluno</title>
+	    <title>Inserir Professor</title>
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 	<body>
-		<form action="/insertAluno" method="POST" modelAttribute="aluno">
+		<form action="/insertProfessor" method="POST" modelAttribute="professor">
 		
   			Nome:<br>
   			<input type="text" name="nome"><br>
@@ -15,11 +15,10 @@
   			Idade:<br>
   			<input type="text" name="idade"><br>
   			<br>
-  			Altura:<br>
-  			<input type="text" name="altura"><br>
-			<br>
-			Peso:<br>
-  			<input type="text" name="peso"><br>
+    <select class="form-control" th:field="${modalidade.id}">
+    <option value="0">selecione a modalidade</option>
+    <option th:each="modalidade : ${modalidades}" th:value="${modalidade.id}" th:text="${modalidade.nome}"></option>
+    </select>
 			<br>    
 		<input type="submit" value="Inserir">
 		</form>
