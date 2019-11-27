@@ -16,6 +16,7 @@ public class Modalidade {
 
 	private String nome;
 
+	@Null
 	private Boolean aerobico;
 	
 	@Null

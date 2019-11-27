@@ -41,7 +41,7 @@ public class ProfessorService implements IProfessorService{
 		 Optional<Professor> getProfessor = getProfessorById(id);
 		 getProfessor.get().setCpf(professor.getCpf());
 		 getProfessor.get().setIdade(professor.getIdade());
-//		 getProfessor.get().setModalidades(professor.getModalidades());
+		 getProfessor.get().setModalidades(professor.getModalidades());
 		 getProfessor.get().setNome(professor.getNome());
 		 
 		 repository.save(getProfessor.get());

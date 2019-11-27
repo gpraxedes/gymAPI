@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import org.apache.tomcat.jni.Mmap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -474,7 +475,11 @@ public class SpringBdController {
 	@RequestMapping(value = "/insertProfessor", method = RequestMethod.GET)
 	public ModelAndView insertProfessor() {
 
-		return new ModelAndView("insertProfessor", "professor", new Professor());
+		ModelAndView mav = new ModelAndView("insertProfessor");
+		mav.addObject("professor", new Professor());
+		mav.addObject("modalidades", modalidadeService.getAllModalidades());
+		
+		return mav;
 
 	}
 
