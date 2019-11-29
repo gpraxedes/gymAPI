@@ -1,14 +1,21 @@
 package com.cotemig.gymAPI.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Null;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.springframework.lang.Nullable;
 
 @Entity
 public class Professor {
@@ -23,13 +30,13 @@ public class Professor {
 
 	private Long cpf;
 
-	@Null
-	@OneToMany(mappedBy = "professor", cascade = CascadeType.ALL)
-	private List<Modalidade> modalidades;
+	@Nullable
+	@OneToMany(mappedBy = "professor", fetch = FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<Modalidade> modalidades = new ArrayList<>();
 
-	@Null
-	@OneToMany(mappedBy = "professor", cascade = CascadeType.ALL)
-	private List<Ficha> fichas;
+//	@OneToMany(mappedBy = "professores")
+//	private List<Ficha> fichas;
 
 	public void setModalidades(List<Modalidade> modalidades) {
 
@@ -38,10 +45,10 @@ public class Professor {
 		}
 	}
 
-	public void setFicha(Ficha ficha) {
-		this.fichas.add(ficha);
-
-	}
+//	public void setFicha(Ficha ficha) {
+//		this.fichas.add(ficha);
+//
+//	}
 	
 	public void setModalidade(Modalidade modalidade) {
 		this.modalidades.add(modalidade);
@@ -72,13 +79,13 @@ public class Professor {
 		this.cpf = cpf;
 	}
 
-	public List<Ficha> getFichas() {
-		return fichas;
-	}
-
-	public void setFichas(List<Ficha> fichas) {
-		this.fichas = fichas;
-	}
+//	public List<Ficha> getFichas() {
+//		return fichas;
+//	}
+//
+//	public void setFichas(List<Ficha> fichas) {
+//		this.fichas = fichas;
+//	}
 
 	public Integer getId() {
 		return id;

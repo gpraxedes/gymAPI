@@ -1,10 +1,14 @@
 package com.cotemig.gymAPI.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Null;
 
 @Entity
@@ -19,8 +23,8 @@ public class Modalidade {
 	@Null
 	private Boolean aerobico;
 	
-	@Null
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name="professor_id", nullable = false) 
 	private Professor professor;
 
 	public Integer getId() {
@@ -42,6 +46,13 @@ public class Modalidade {
 	public void setAerobico(Boolean aerobico) {
 		this.aerobico = aerobico;
 	}
-	
+
+	public Professor getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
 	
 }

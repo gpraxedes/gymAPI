@@ -17,7 +17,11 @@
   			<br>
   			Idade:<br>
   			<input type="text" name="idade" th:value="${professor.idade}"><br>
-  			<br> 
+  			<br>
+  			Modalidade:<br>
+    <select th:field="${professor.modalidades}" class="form-control" readOnly="true">
+       <option th:each="modalidade: ${modalidades}" th:value="${modalidade.id}" th:text="${modalidade.nome}"></option>
+    </select> 
   			<br>
   			<input type="submit" value="Atualizar">
 		</form>

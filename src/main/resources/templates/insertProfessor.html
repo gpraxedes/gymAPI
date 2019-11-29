@@ -16,8 +16,8 @@
   			<input type="text"  th:field="*{idade}"><br>
   			<br>
   			Modalidade:<br>
-    <select th:field="*{modalidades}" class="form-control">
-       <option th:each="modalidades: ${modalidade}" th:value="${modalidade.id}" th:text="${modalidade.name}"></option>
+    <select th:field="${professor.modalidades}" class="form-control">
+       <option th:each="modalidade: ${modalidades}" th:value="${modalidade.id}" th:text="${modalidade.nome}"></option>
     </select>
 			<br>    
 		<input type="submit" value="Inserir">

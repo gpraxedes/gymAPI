@@ -7,9 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Null;
+
+import org.springframework.lang.Nullable;
 
 @Entity
 public class Ficha {
@@ -23,16 +26,18 @@ public class Ficha {
 	
 	private String fichaLetra;
 	
-	@Null
+	@Nullable
 	@ManyToOne
+    @JoinColumn(name="professor_id", nullable=false)
 	private Professor professor;
 	
-	@Null
+	@Nullable
 	@ManyToOne
+    @JoinColumn(name="aluno_id", nullable=false)
 	private Aluno aluno;
 	
-	@Null
-	@OneToMany(mappedBy = "ficha", cascade = CascadeType.ALL)
+	@Nullable
+	@OneToMany(mappedBy="ficha")
 	private List<ItemFicha> itens;
 
 	public String getTipoFicha() {

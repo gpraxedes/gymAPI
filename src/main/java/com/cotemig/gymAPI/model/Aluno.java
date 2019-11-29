@@ -1,5 +1,6 @@
 package com.cotemig.gymAPI.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -8,15 +9,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.Null;
 //import javax.persistence.JoinColumn;
 //import javax.persistence.ManyToOne;
+
+import org.springframework.lang.Nullable;
 
 @Entity
 public class Aluno {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 
 	private String nome;
@@ -29,9 +31,9 @@ public class Aluno {
 
 	private Double peso;
 	
-	@Null
+	@Nullable
 	@OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
-	private List<Ficha> fichas;
+	private List<Ficha> fichas = new ArrayList<>();
 
 	public String getNome() {
 		return nome;

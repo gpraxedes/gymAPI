@@ -1,24 +1,49 @@
 <html>
 	<head>
-	    <title>Inserir Professor</title>
+	    <title>Inserir Ficha</title>
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 	<body>
-		<form  th:action="@{/insertProfessor}" method="POST" th:object="${professor}">
+		<form  th:action="@{/insertFicha}" method="POST" th:object="${ficha}">
 		
-  			Nome:<br>
-  			<input type="text" th:field="*{nome}"><br>
+  			Tipo Ficha:<br>
+  			<input type="text" th:field="*{tipoFicha}"><br>
   			<br>
-  			CPF:<br>
-  			<input type="text"  th:field="*{cpf}"><br>
+  			Letra Ficha:<br>
+  			<input type="text"  maxlength="1" th:field="*{letraFicha}"><br>
   			<br>
-  			Idade:<br>
-  			<input type="text"  th:field="*{idade}"><br>
-  			<br>
-  			Modalidade:<br>
-    <select th:field="*{modalidades}" class="form-control">
-       <option th:each="modalidades: ${modalidade}" th:value="${modalidade.id}" th:text="${modalidade.name}"></option>
+  			Aluno:<br>
+    <select th:field="*{ficha.alunos}" class="form-control">
+       <option th:each="alunos: ${aluno}" th:value="${aluno.id}" th:text="${aluno.name}"></option>
     </select>
+  			Professor:<br>
+    <select th:field="*{ficha.professores}" class="form-control">
+       <option th:each="professores: ${professor}" th:value="${professor.id}" th:text="${professor.name}"></option>
+    </select>
+  			<br>
+  			Exercícios 1:<br>
+    <select th:field="${ficha.itens}" class="form-control" >
+       <option th:each="item: ${itens}" th:value="${itens.id}" th:text="${itens.nome}"></option>
+    </select> 
+  			<br>
+  			<br>
+  			Exercícios 2:<br>
+   <select th:field="${ficha.itens}" class="form-control" >
+       <option th:each="item: ${itens}" th:value="${itens.id}" th:text="${itens.nome}"></option>
+    </select> 
+  			<br>
+  			<br>
+  			Exercícios 3:<br>
+    <select th:field="${ficha.itens}" class="form-control" >
+       <option th:each="item: ${itens}" th:value="${itens.id}" th:text="${itens.nome}"></option>
+    </select> 
+  			<br>
+  			<br>
+  			Exercícios 4:<br>
+    <select th:field="${ficha.itens}" class="form-control" >
+       <option th:each="item: ${itens}" th:value="${itens.id}" th:text="${itens.nome}"></option>
+    </select> 
+  			<br>
 			<br>    
 		<input type="submit" value="Inserir">
 		</form>

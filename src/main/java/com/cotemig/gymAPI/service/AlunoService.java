@@ -13,56 +13,49 @@ import com.cotemig.gymAPI.service.IAlunoService;
 @Service("alunoService")
 public class AlunoService implements IAlunoService{
 
-	 @Autowired
-	AlunoRepository repository;
-	
+	@Autowired
+	AlunoRepository alunoRepository; 
+
 	@Override
 	public Optional<Aluno> getAlunoById(Integer id) {
-		 return repository.findById(id);
-
+		return alunoRepository.findById(id);
 	}
 
 	@Override
 	public List<Aluno> getAllAlunos() {
-		 return repository.findAll();
-
+		return alunoRepository.findAll();
 	}
 
 	@Override
 	public void deleteAllAlunos() {
-		repository.deleteAll();
-		
+		alunoRepository.deleteAll();
 	}
 
 	@Override
 	public void deleteAlunoById(Integer id) {
-		repository.deleteById(id);
-
+		alunoRepository.deleteById(id);
 	}
 
 	@Override
 	public void updateAlunoById(Integer id, Aluno aluno) {
 		
-		 Optional<Aluno> getAluno = getAlunoById(id);
-		 getAluno.get().setNome(aluno.getNome());
-		 getAluno.get().setCpf(aluno.getCpf());
-		 getAluno.get().setIdade(aluno.getIdade());
-		 getAluno.get().setAltura(aluno.getAltura());
-		 getAluno.get().setPeso(aluno.getPeso());
-		 
-		 repository.save(getAluno.get());
+		Optional<Aluno> getAluno = getAlunoById(id);
+		getAluno.get().setNome(aluno.getNome());
+		getAluno.get().setCpf(aluno.getCpf());
+		getAluno.get().setIdade(aluno.getIdade());
+		getAluno.get().setAltura(aluno.getAltura());
+		getAluno.get().setPeso(aluno.getPeso());
+		
+		alunoRepository.save(aluno);
 	}
-
+	
 	@Override
 	public void updateAluno(Aluno aluno) {
-		repository.save(aluno);
-		
+		alunoRepository.save(aluno);
 	}
 
 	@Override
 	public void insertAluno(Aluno aluno) {
-		repository.save(aluno);
-		
+		alunoRepository.save(aluno);
 	}
-
 }

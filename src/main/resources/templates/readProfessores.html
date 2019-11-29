@@ -2,6 +2,12 @@
 	<head>
 		<title>Professores</title>
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <style>
+		table, th, td {
+		  border: 1px solid black;
+		  border-collapse: collapse;
+		}
+		</style>
 	</head>
 	<body>
 		<a href="insertProfessor">Inserir Professor</a>
@@ -12,6 +18,7 @@
 			    <th>Nome</td>
 			    <th>Idade</td>
 			    <th>CPF</td>
+			    <th>Modalidade</td>
 			    <th>Excluir?</td>
 			    <th>Alterar?</td>
 			</tr>
@@ -20,6 +27,11 @@
 			    <td th:text="${professor.nome}"></td>
 			    <td th:text="${professor.idade}"></td>
 			    <td th:text="${professor.cpf}"></td>
+			    <td>
+					<th:block th:each="modalidade : ${professor.modalidades}">
+    					<label th:text="${modalidade.nome}"></label>
+  					</th:block>
+				</td>
 			   
 			    <td><a th:href="@{deleteProfessor(id=${professor.id})}">Deletar</a></td>
 			    <td><a th:href="@{updateProfessor(id=${professor.id})}">Alterar</a></td>

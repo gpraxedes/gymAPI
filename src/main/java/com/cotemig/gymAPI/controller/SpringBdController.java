@@ -80,7 +80,8 @@ public class SpringBdController {
 	}
 
 	@RequestMapping(value = "/deleteAluno", method = RequestMethod.POST)
-	public String submitDeleteAluno(@Valid @ModelAttribute("aluno") Aluno aluno, BindingResult result, ModelMap model) {
+	public String submitDeleteAluno(@Valid @ModelAttribute("aluno") Aluno aluno, BindingResult result, ModelMap model)
+	{
 
 		if (result.hasErrors()) {
 			return "error";
@@ -126,7 +127,7 @@ public class SpringBdController {
 		mav.addObject("alunos", alunoService.getAlunoById(id));
 		return mav;
 	}
-	
+
 	// Exercicio
 
 	@RequestMapping(value = "/insertExercicio", method = RequestMethod.GET)
@@ -476,9 +477,10 @@ public class SpringBdController {
 	public ModelAndView insertProfessor() {
 
 		ModelAndView mav = new ModelAndView("insertProfessor");
+
 		mav.addObject("professor", new Professor());
 		mav.addObject("modalidades", modalidadeService.getAllModalidades());
-		
+
 		return mav;
 
 	}
@@ -499,7 +501,16 @@ public class SpringBdController {
 	@RequestMapping(value = "/deleteProfessor", method = RequestMethod.GET)
 	public ModelAndView deleteProfessor(Integer id) {
 
-		return new ModelAndView("deleteProfessor", "professor", professorService.getProfessorById(id).get());
+		ModelAndView mav = new ModelAndView("deleteProfessor");
+
+		
+		Professor professor = professorService.getProfessorById(id).get();
+		
+		mav.addObject("professor", professor);
+		//mav.addObject("modalidades", modalidadeService.getAllModalidades());
+		mav.addObject("modalidades", professor.getModalidades());
+
+		return mav;
 	}
 
 	@RequestMapping(value = "/deleteProfessor", method = RequestMethod.POST)
@@ -518,7 +529,12 @@ public class SpringBdController {
 	@RequestMapping(value = "/updateProfessor", method = RequestMethod.GET)
 	public ModelAndView updateProfessor(Integer id) {
 
-		return new ModelAndView("updateProfessor", "professor", professorService.getProfessorById(id).get());
+		ModelAndView mav = new ModelAndView("updateProfessor");
+
+		mav.addObject("professor", professorService.getProfessorById(id).get());
+		mav.addObject("modalidades", modalidadeService.getAllModalidades());
+
+		return mav;
 
 	}
 
@@ -540,6 +556,7 @@ public class SpringBdController {
 
 		ModelAndView mav = new ModelAndView("readProfessores");
 		mav.addObject("professores", professorService.getAllProfessores());
+		mav.addObject("modalidades", modalidadeService.getAllModalidades());
 		return mav;
 	}
 
@@ -547,22 +564,22 @@ public class SpringBdController {
 	public ModelAndView index() {
 
 		ModelAndView mav = new ModelAndView("index");
-		mav.addObject("alunos", alunoService.getAllAlunos());
+
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/painelAdm", method = RequestMethod.GET)
 	public ModelAndView painelAdm() {
 
 		ModelAndView mav = new ModelAndView("painelAdm");
 		return mav;
 	}
-	
-//	@RequestMapping(value = "/painelAdm", method = RequestMethod.GET)
-//	public ModelAndView painelAdm() {
-//
-//		ModelAndView mav = new ModelAndView("painelAdm");
-//		return mav;
-//	}
+
+	@RequestMapping(value = "/painelFichas", method = RequestMethod.GET)
+	public ModelAndView painelFichas() {
+
+		ModelAndView mav = new ModelAndView("painelFichas");
+		return mav;
+	}
 
 }

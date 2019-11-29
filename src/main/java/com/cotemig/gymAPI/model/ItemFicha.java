@@ -1,12 +1,15 @@
 package com.cotemig.gymAPI.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.Null;
+
+import com.sun.istack.Nullable;
 
 @Entity
 public class ItemFicha {
@@ -15,8 +18,8 @@ public class ItemFicha {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
-	@Null
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "itemFicha_id")
 	private Exercicio exercicio;
 	
 	private String descricao;
@@ -27,8 +30,9 @@ public class ItemFicha {
 	
 	private Integer descanso;
 
-	@Null
+	@Nullable
 	@ManyToOne
+    @JoinColumn(name="ficha_id", nullable=false)
 	private Ficha ficha;
 	
 	public Exercicio getExercicio() {

@@ -4,8 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.Null;
+import javax.persistence.OneToOne;
+
+import com.sun.istack.Nullable;
 
 @Entity
 public class Exercicio {
@@ -18,8 +19,8 @@ public class Exercicio {
 	
 	private String descricao;
 	
-	@Null
-	@ManyToOne
+	@Nullable
+	@OneToOne(mappedBy = "exercicio")
 	private ItemFicha item;
 	
 	public Integer getId() {

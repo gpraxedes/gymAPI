@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title>Gerenciamento de Fichas</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	    <style>
+		table, th, td {
+		  border: 1px solid black;
+		  border-collapse: collapse;
+		}
+		</style>
+	</head>
+	<body>
+		<a href="insertFicha">Criar Ficha</a> | <a href="insertItemFicha">Inserir Item para Ficha</a> | <a href="readExercicios">Inserir Exercícios</a>
+		<br/>
+		<table style="width:100%">
+			<tr>
+			
+			    <th>ID</td>
+			    <th>Letra</td>
+			    <th>Aluno</td>
+			    <th>Excluir?</td>
+			    <th>Alterar?</td>
+			</tr>
+			<tr th:each="ficha : ${fichas}">
+			    <td th:text="${ficha.id}"></td>
+			    <td th:text="${ficha.letra}"></td>
+			    <td th:text="${ficha.aluno.nome}"></td>
+			   
+			    <td><a th:href="@{deleteFicha(id=${ficha.id})}">Deletar</a></td>
+			    <td><a th:href="@{updateFicha(id=${ficha.id})}">Alterar</a></td>
+			</tr>
+		</table>
+	</body>
+</html>
