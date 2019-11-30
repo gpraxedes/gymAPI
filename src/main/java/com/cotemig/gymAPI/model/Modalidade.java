@@ -54,5 +54,9 @@ public class Modalidade {
 	public void setProfessor(Professor professor) {
 		this.professor = professor;
 	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	
 }

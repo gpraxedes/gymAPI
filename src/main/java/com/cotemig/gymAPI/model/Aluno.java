@@ -86,6 +86,12 @@ public class Aluno {
 	public void setFicha(Ficha ficha) {
 		this.fichas.add(ficha);
 	}
-	
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public void setFichas(List<Ficha> fichas) {
+		this.fichas = fichas;
+	}
 }

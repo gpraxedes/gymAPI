@@ -79,4 +79,16 @@ public class ItemFicha {
 		return id;
 	}
 
+	public Ficha getFicha() {
+		return ficha;
+	}
+
+	public void setFicha(Ficha ficha) {
+		this.ficha = ficha;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 }

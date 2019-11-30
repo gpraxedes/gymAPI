@@ -17,8 +17,6 @@ public class Exercicio {
 	
 	private String nome;
 	
-	private String descricao;
-	
 	@Nullable
 	@OneToOne(mappedBy = "exercicio")
 	private ItemFicha item;
@@ -35,14 +33,6 @@ public class Exercicio {
 		this.nome = nome;
 	}
 
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
 	public ItemFicha getItem() {
 		return item;
 	}
@@ -51,6 +41,7 @@ public class Exercicio {
 		this.item = item;
 	}
 
-	
-	
+	public void setId(Integer id) {
+		this.id = id;
+	}
 }

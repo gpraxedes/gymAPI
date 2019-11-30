@@ -92,5 +92,32 @@ public class Ficha {
 		return id;
 	}
 
+	public Professor getProfessor() {
+		return professor;
+	}
+
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+
+	public List<ItemFicha> getItens() {
+		return itens;
+	}
+
+	public void setItens(List<ItemFicha> itens) {
+		this.itens = itens;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	
 }

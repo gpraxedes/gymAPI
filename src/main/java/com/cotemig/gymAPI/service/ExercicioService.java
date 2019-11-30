@@ -41,7 +41,6 @@ public class ExercicioService implements IExercicioService{
 		 Optional<Exercicio> getExercicio = getExercicioById(id);
 		 
 		 getExercicio.get().setNome(exercicio.getNome());
-		 getExercicio.get().setDescricao(exercicio.getDescricao());
 		 
 		 repository.save(getExercicio.get());
 		

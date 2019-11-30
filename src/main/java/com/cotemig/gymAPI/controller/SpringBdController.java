@@ -546,7 +546,7 @@ public class SpringBdController {
 			return "error";
 		}
 
-		professorService.updateProfessor(professor);
+		professorService.updateProfessorById(professor.getId(), professor);
 
 		return "redirect:";
 	}

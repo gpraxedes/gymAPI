@@ -46,4 +46,9 @@ public class Funcionario {
 		this.cpf = cpf;
 	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	
 }
