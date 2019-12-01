@@ -1,0 +1,79 @@
+<html>
+	<head>
+	    <title>Deletar Ficha</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<form  action="/deleteFicha" method="POST" modelAttribute="ficha">
+		
+		    ID:<br>
+  			<input type="text" name="id" th:value="${ficha.id}" readOnly="true"><br>
+  			<br>
+  			TipoFicha:<br>
+  			<input type="text" name="tipoFicha" th:value="${ficha.tipoFicha}" readOnly="true"><br>
+  			<br>
+  			Ficha Letra:<br>
+  			<input type="text" name="fichaLetra" th:value="${ficha.fichaLetra}" readOnly="true"><br>
+  			<br>
+  			Aluno:<br>
+  			<input type="text" name="aluno"
+  			
+  			th:each="aluno : ${alunos}"
+      				  th:if="${aluno.id} == ${ficha.aluno_id}"
+  			
+  			 th:value="${aluno.nome}" readOnly="true"><br>
+  			<br>
+  			
+  			Professor:<br>
+  			<input type="text" name="professor"
+  			
+  			th:each="professor : ${professores}"
+      				  th:if="${professor.id} == ${ficha.professor_id}"
+  			
+  			 th:value="${professor.nome}" readOnly="true"><br>
+  			<br>
+  			
+  			Exercícios 1:<br>
+    		<input type="text" name="itemExercicio1" th:each="itemFicha : ${itensFicha}" 
+  				th:if="${itemFicha.id} == ${ficha.itemExercicio1_id}"
+  				
+  				th:value="'Exercício:' + ${itemFicha.exercicio_id} + 
+  				'|Séries:' + ${itemFicha.serie} + 
+  				'|Repetição:' + ${itemFicha.repeticao} + 
+  				'|Descanso:' + ${itemFicha.descanso}" readOnly="true">
+  			<br>
+  			<br>
+  			Exercícios 2:<br>
+   			<input type="text" name="itemExercicio1" th:each="itemFicha : ${itensFicha}" 
+  				th:if="${itemFicha.id} == ${ficha.itemExercicio2_id}"
+  				
+  				th:value="'Exercício:' + ${itemFicha.exercicio_id} + 
+  				'|Séries:' + ${itemFicha.serie} + 
+  				'|Repetição:' + ${itemFicha.repeticao} + 
+  				'|Descanso:' + ${itemFicha.descanso}" readOnly="true">
+  			<br>
+  			<br>
+			Exercícios 3:<br>
+  			 <input type="text" name="itemExercicio1" th:each="itemFicha : ${itensFicha}" 
+  				th:if="${itemFicha.id} == ${ficha.itemExercicio3_id}"
+  				
+  				th:value="'Exercício:' + ${itemFicha.exercicio_id} + 
+  				'|Séries:' + ${itemFicha.serie} + 
+  				'|Repetição:' + ${itemFicha.repeticao} + 
+  				'|Descanso:' + ${itemFicha.descanso}" readOnly="true">
+  			<br>
+  			<br>
+  			Exercícios 4:<br>
+    		<input type="text" name="itemExercicio1" th:each="itemFicha : ${itensFicha}" 
+  				th:if="${itemFicha.id} == ${ficha.itemExercicio4_id}"
+  				
+  				th:value="'Exercício:' + ${itemFicha.exercicio_id} + 
+  				'|Séries:' + ${itemFicha.serie} + 
+  				'|Repetição:' + ${itemFicha.repeticao} + 
+  				'|Descanso:' + ${itemFicha.descanso}" readOnly="true">
+  			<br>
+  			<br>
+			<input type="button" value="Voltar" onClick="history.go(-1)">
+		</form>
+	</body>
+</html>

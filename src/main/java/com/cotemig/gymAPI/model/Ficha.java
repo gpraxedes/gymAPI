@@ -30,7 +30,13 @@ public class Ficha {
 	
 	private Integer aluno_id;
 	
-	private Integer itemFicha_id;
+	private Integer itemExercicio1_id;
+	
+	private Integer itemExercicio2_id;
+	
+	private Integer itemExercicio3_id;
+	
+	private Integer itemExercicio4_id;
 
 	public String getTipoFicha() {
 		return tipoFicha;
@@ -72,12 +78,37 @@ public class Ficha {
 		this.aluno_id = aluno_id;
 	}
 
-	public Integer getItemFicha_id() {
-		return itemFicha_id;
+	public Integer getItemExercicio1_id() {
+		return itemExercicio1_id;
 	}
 
-	public void setItemFicha_id(Integer itemFicha_id) {
-		this.itemFicha_id = itemFicha_id;
+	public void setItemExercicio1_id(Integer itemExercicio1_id) {
+		this.itemExercicio1_id = itemExercicio1_id;
+	}
+
+	public Integer getItemExercicio2_id() {
+		return itemExercicio2_id;
+	}
+
+	public void setItemExercicio2_id(Integer itemExercicio2_id) {
+		this.itemExercicio2_id = itemExercicio2_id;
+	}
+
+	public Integer getItemExercicio3_id() {
+		return itemExercicio3_id;
+	}
+
+	public void setItemExercicio3_id(Integer itemExercicio3_id) {
+		this.itemExercicio3_id = itemExercicio3_id;
+	}
+
+	public Integer getItemExercicio4_id() {
+		return itemExercicio4_id;
+	}
+
+	public void setItemExercicio4_id(Integer itemExercicio4_id) {
+		this.itemExercicio4_id = itemExercicio4_id;
 	}
 	
+
 }

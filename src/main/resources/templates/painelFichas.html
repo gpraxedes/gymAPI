@@ -19,14 +19,24 @@
 			    <th>ID</td>
 			    <th>Letra</td>
 			    <th>Aluno</td>
+			    <th>Professor</td>
 			    <th>Visualizar</td>
 			    <th>Excluir?</td>
 			    <th>Alterar?</td>
 			</tr>
 			<tr th:each="ficha : ${fichas}">
 			    <td th:text="${ficha.id}"></td>
-			    <td th:text="${ficha.letra}"></td>
-			    <td th:text="${ficha.aluno.nome}"></td>
+			    <td th:text="${ficha.fichaLetra}"></td>
+			    
+			    <td th:each="aluno : ${alunos}"
+      				  th:if="${aluno.id} == ${ficha.aluno_id}"
+  					  th:text="${aluno.nome}">
+  				</td >
+  				
+  				<td th:each="professor : ${professores}"
+      				  th:if="${professor.id} == ${ficha.professor_id}"
+  					  th:text="${professor.nome}">
+  				</td >
 			   
 			   <td><a th:href="@{getFicha(id=${ficha.id})}">Visualizar</a></td>
 			    <td><a th:href="@{deleteFicha(id=${ficha.id})}">Deletar</a></td>

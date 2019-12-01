@@ -23,6 +23,7 @@
   				<option th:each="modalidade : ${modalidades}" th:value="${modalidade.id}" th:text="${modalidade.nome}"></option>
 			</select>
 			<br>
+			<br> 
   			<input type="submit" value="Atualizar">
   			<input type="button" value="Voltar" onClick="history.go(-1)">
 		</form>

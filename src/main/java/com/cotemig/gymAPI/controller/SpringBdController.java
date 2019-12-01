@@ -202,8 +202,15 @@ public class SpringBdController {
 	@RequestMapping(value = "/insertFicha", method = RequestMethod.GET)
 	public ModelAndView insertFicha() {
 
-		return new ModelAndView("insertFicha", "ficha", new Ficha());
-
+		ModelAndView mav = new ModelAndView("insertFicha");
+		
+		mav.addObject("ficha", new Ficha());
+		mav.addObject("itensFicha", itemFichaService.getAllItensFicha());
+		mav.addObject("alunos", alunoService.getAllAlunos());
+		mav.addObject("professores", professorService.getAllProfessores());
+		mav.addObject("exercicios", exercicioService.getAllExercicios());
+		
+		return mav;
 	}
 
 	@RequestMapping(value = "/insertFicha", method = RequestMethod.POST)
@@ -213,15 +220,33 @@ public class SpringBdController {
 			return "error";
 		}
 
+		Optional<Professor> professor = professorService.getProfessorById(ficha.getProfessor_id());
+		Optional<Modalidade> modalidade = modalidadeService.getModalidadeById(professor.get().getModalidade_id());
+		
+		
+		if(!professor.isPresent() || modalidade.get().getAerobico()) {
+			
+			return "error, professor inexistente ou com a modalidade do tipo aeróbico";
+			
+		} 
+		
 		fichaService.insertFicha(ficha);
 
-		return "redirect:/readFichas";
+		return "redirect:/painelFichas";
 	}
 
 	@RequestMapping(value = "/deleteFicha", method = RequestMethod.GET)
 	public ModelAndView deleteFicha(Integer id) {
 
-		return new ModelAndView("deleteFicha", "ficha", fichaService.getFichaById(id).get());
+		ModelAndView mav = new ModelAndView("deleteFicha");
+		
+		mav.addObject("ficha", fichaService.getFichaById(id).get());
+		mav.addObject("itensFicha", itemFichaService.getAllItensFicha());
+		mav.addObject("alunos", alunoService.getAllAlunos());
+		mav.addObject("professores", professorService.getAllProfessores());
+		mav.addObject("exercicios", exercicioService.getAllExercicios());
+		
+		return mav;
 	}
 
 	@RequestMapping(value = "/deleteFicha", method = RequestMethod.POST)
@@ -233,13 +258,22 @@ public class SpringBdController {
 
 		fichaService.deleteFichaById(ficha.getId());
 
-		return "redirect:/readFichas";
+		return "redirect:/painelFichas";
 	}
 
 	@RequestMapping(value = "/updateFicha", method = RequestMethod.GET)
 	public ModelAndView updateFicha(Integer id) {
 
-		return new ModelAndView("updateFicha", "ficha", fichaService.getFichaById(id).get());
+		ModelAndView mav = new ModelAndView("updateFicha");
+		
+		mav.addObject("ficha", fichaService.getFichaById(id).get());
+		mav.addObject("itensFicha", itemFichaService.getAllItensFicha());
+		mav.addObject("alunos", alunoService.getAllAlunos());
+		mav.addObject("professores", professorService.getAllProfessores());
+		mav.addObject("exercicios", exercicioService.getAllExercicios());
+
+		
+		return mav;
 
 	}
 
@@ -250,9 +284,19 @@ public class SpringBdController {
 			return "error";
 		}
 
+		Optional<Professor> professor = professorService.getProfessorById(ficha.getProfessor_id());
+		Optional<Modalidade> modalidade = modalidadeService.getModalidadeById(professor.get().getModalidade_id());
+		
+		
+		if(!professor.isPresent() || modalidade.get().getAerobico()) {
+			
+			return "error, professor inexistente ou com a modalidade do tipo aeróbico";
+			
+		} 
+		
 		fichaService.updateFicha(ficha);
 
-		return "redirect:/readFichas";
+		return "redirect:/painelFichas";
 	}
 
 	@RequestMapping(value = "/readFichas", method = RequestMethod.GET)
@@ -354,7 +398,7 @@ public class SpringBdController {
 
 		itemFichaService.insertItemFicha(itemFicha);
 
-		return "redirect:readFichas";
+		return "redirect:insertFicha";
 	}
 
 	@RequestMapping(value = "/deleteItemFicha", method = RequestMethod.GET)
@@ -429,6 +473,8 @@ public class SpringBdController {
 			return "error";
 		}
 
+		if(modalidade.getAerobico() == null) modalidade.setAerobico(false);
+		
 		modalidadeService.insertModalidade(modalidade);
 
 		return "redirect:/readModalidades";
@@ -467,6 +513,8 @@ public class SpringBdController {
 		if (result.hasErrors()) {
 			return "error";
 		}
+
+		if(modalidade.getAerobico() == null) modalidade.setAerobico(false);
 
 		modalidadeService.updateModalidade(modalidade);
 
@@ -590,6 +638,25 @@ public class SpringBdController {
 	public ModelAndView painelFichas() {
 
 		ModelAndView mav = new ModelAndView("painelFichas");
+		mav.addObject("fichas", fichaService.getAllFichas());
+		mav.addObject("itensFicha", itemFichaService.getAllItensFicha());
+		mav.addObject("professores", professorService.getAllProfessores());
+		mav.addObject("alunos", alunoService.getAllAlunos());
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/getFicha", method = RequestMethod.GET)
+	public ModelAndView getFicha(Integer id) {
+
+		ModelAndView mav = new ModelAndView("getFicha");
+		
+		mav.addObject("ficha", fichaService.getFichaById(id).get());
+		mav.addObject("itensFicha", itemFichaService.getAllItensFicha());
+		mav.addObject("alunos", alunoService.getAllAlunos());
+		mav.addObject("professores", professorService.getAllProfessores());
+		mav.addObject("exercicios", exercicioService.getAllExercicios());
+
 		return mav;
 	}
 

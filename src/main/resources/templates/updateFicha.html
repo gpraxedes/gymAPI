@@ -1,23 +1,19 @@
 <html>
 	<head>
-	    <title>Inserir Ficha</title>
+	    <title>Atualizar Ficha</title>
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 	<body>
-	
-		<a href="insertItemFicha">Criar itens para ficha</a> | 
-		<a href="readItensFicha">Ver itens para ficha</a> | 
-		<a href="readExercicios">Criar Exercícios</a>
-		<br>
-		<br>
-	
-		<form  th:action="@{/insertFicha}" method="POST" th:object="${ficha}">
+		<form action="/updateFicha" method="POST" modelAttribute="ficha">
 		
+			ID:<br>
+  			<input type="text" name="id" th:value="${ficha.id}" readOnly="true"><br>
+  			<br>
   			Tipo Ficha:<br>
-  			<input type="text" th:field="*{tipoFicha}"><br>
+  			<input type="text" name="tipoFicha" th:value="${ficha.tipoFicha}"><br>
   			<br>
   			Letra Ficha:<br>
-  			<input type="text"  maxlength="1" th:field="*{fichaLetra}"><br>
+  			<input type="text" name="fichaLetra" th:value="${ficha.fichaLetra}"><br>
   			<br>
   			Aluno:<br>
     <select name="aluno_id">
@@ -75,8 +71,9 @@
 			</select> 
   			<br>
   			<br>  
-		<input type="submit" value="Inserir">
-		<input type="button" value="Voltar" onClick="history.go(-1)">
+  			<input type="submit" value="Atualizar">
+  			<input type="button" value="Voltar" onClick="history.go(-1)">
 		</form>
+		
 	</body>
 </html>

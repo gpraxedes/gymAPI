@@ -19,7 +19,8 @@
     <select name="modalidade_id">
   				<option th:each="modalidade : ${modalidades}" th:value="${modalidade.id}" th:text="${modalidade.nome}"></option>
 			</select>
-			<br>    
+			<br>
+			<br>     
 		<input type="submit" value="Inserir">
 		<input type="button" value="Voltar" onClick="history.go(-1)">
 		</form>

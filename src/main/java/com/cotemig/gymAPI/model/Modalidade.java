@@ -16,7 +16,6 @@ public class Modalidade {
 
 	private String nome;
 
-	@Nullable
 	private Boolean aerobico;
 	
 	//private Integer professor_id;
