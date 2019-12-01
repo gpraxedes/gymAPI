@@ -1,0 +1,34 @@
+<html>
+	<head>
+	    <title>Atualizar Item da Ficha</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<form action="/updateItemFicha" method="POST" modelAttribute="${itemFicha}">
+		
+			ID:<br>
+  			<input type="text" name="id" th:value="${itemFicha.id}" readOnly="true"><br>
+  			<br>
+  			Exercício:<br>
+    <select name="exercicio_id">
+  				<option th:each="exercicio : ${exercicios}" th:value="${exercicio.id}" th:text="${exercicio.nome}"></option>
+			</select>
+			<br>
+  			Descrição:<br>
+  			<input type="text" name="descricao" th:value="${itemFicha.descricao}"><br>
+  			<br>
+  			Séries:<br>
+  			<input type="text" name="serie" th:value="${itemFicha.serie}"><br>
+  			<br>
+  			Repetições:<br>
+  			<input type="text" name="repeticao" th:value="${itemFicha.repeticao}"><br>
+  			<br>
+  			Descanso:<br>
+  			<input type="text" name="descanso" th:value="${itemFicha.descanso}">seg.<br>
+  			<br>
+			<br>
+  			<input type="submit" value="Atualizar">
+  			<input type="button" value="Voltar" onClick="history.go(-1)">
+		</form>
+	</body>
+</html>

@@ -16,11 +16,12 @@
   			<input type="text"  th:field="*{idade}"><br>
   			<br>
   			Modalidade:<br>
-    <select th:field="${professor.modalidades}" class="form-control">
-       <option th:each="modalidade: ${modalidades}" th:value="${modalidade.id}" th:text="${modalidade.nome}"></option>
-    </select>
+    <select name="modalidade_id">
+  				<option th:each="modalidade : ${modalidades}" th:value="${modalidade.id}" th:text="${modalidade.nome}"></option>
+			</select>
 			<br>    
 		<input type="submit" value="Inserir">
+		<input type="button" value="Voltar" onClick="history.go(-1)">
 		</form>
 	</body>
 </html>

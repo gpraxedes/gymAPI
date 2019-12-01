@@ -30,10 +30,6 @@ public class Aluno {
 	private Double altura;
 
 	private Double peso;
-	
-	@Nullable
-	@OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
-	private List<Ficha> fichas = new ArrayList<>();
 
 	public String getNome() {
 		return nome;
@@ -79,19 +75,7 @@ public class Aluno {
 		return id;
 	}
 
-	public List<Ficha> getFichas() {
-		return this.fichas;
-	}
-
-	public void setFicha(Ficha ficha) {
-		this.fichas.add(ficha);
-	}
-
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public void setFichas(List<Ficha> fichas) {
-		this.fichas = fichas;
 	}
 }

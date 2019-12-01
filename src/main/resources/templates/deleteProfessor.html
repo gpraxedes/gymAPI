@@ -19,11 +19,19 @@
   			<input type="text" name="idade" th:value="${professor.idade}" readOnly="true"><br>
   			<br>
   			Modalidade:<br>
-    <select th:field="${professor.modalidades}" class="form-control" readOnly="true">
-       <option th:each="modalidade: ${modalidades}" th:value="${modalidade.id}" th:text="${modalidade.nome}"></option>
-    </select> 
-  			<br><br>
+  			<input type="text" name="modalidade"
+  			
+  			th:each="modalidade : ${modalidades}"
+      				  th:if="${modalidade.id} == ${professor.modalidade_id}"
+  					 
+  			
+  			
+  			 th:value="${modalidade.nome}" readOnly="true"><br>
+  			<br>
+     
+  			<br>
   			<input type="submit" value="Deletar">
+  			<input type="button" value="Voltar" onClick="history.go(-1)">
 		</form>
 	</body>
 </html>

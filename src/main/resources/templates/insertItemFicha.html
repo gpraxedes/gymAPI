@@ -1,0 +1,31 @@
+<html>
+	<head>
+	    <title>Inserir Item Ficha</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<form  th:action="@{/insertItemFicha}" method="POST" th:object="${itemFicha}">
+		
+		Exercício:<br>
+    <select name="exercicio_id">
+  				<option th:each="exercicio : ${exercicios}" th:value="${exercicio.id}" th:text="${exercicio.nome}"></option>
+			</select>
+			<br>
+			<br>
+  			Descrição:<br>
+  			<input type="text" th:field="*{descricao}"><br>
+  			<br>
+  			Séries:<br>
+  			<input type="text"  maxlength="2" th:field="*{serie}"><br>
+  			<br>
+  			Repetições:<br>
+  			<input type="text"  maxlength="2" th:field="*{repeticao}"><br>
+  			<br>
+  			Descanso:<br>
+  			<input type="text"  maxlength="2" th:field="*{descanso}"><br>
+  			<br> 
+		<input type="submit" value="Inserir">
+		<input type="button" value="Voltar" onClick="history.go(-1)">
+		</form>
+	</body>
+</html>

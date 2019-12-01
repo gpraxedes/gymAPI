@@ -4,8 +4,7 @@
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 	<body>
-		<form action="/insertAluno" method="POST" modelAttribute="aluno">
-		
+		<form action="/insertAluno" method="POST" modelAttribute="aluno"> 
   			Nome:<br>
   			<input type="text" name="nome"><br>
   			<br>
@@ -22,6 +21,7 @@
   			<input type="text" name="peso"><br>
 			<br>    
 		<input type="submit" value="Inserir">
+		<input type="button" value="Voltar" onClick="history.go(-1)"> 
 		</form>
 	</body>
 </html>

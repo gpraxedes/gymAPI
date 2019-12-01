@@ -4,6 +4,14 @@
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 	<body>
+	
+		<a href="insertItemFicha">Criar itens para ficha</a> | 
+		<a href="readItensFicha">Ver itens para ficha</a> | 
+		<a href="readExercicios">Criar Exercícios</a>
+		<br>
+		<br>
+  			<!-- Exercícios 1:<br>
+	
 		<form  th:action="@{/insertFicha}" method="POST" th:object="${ficha}">
 		
   			Tipo Ficha:<br>
@@ -13,16 +21,15 @@
   			<input type="text"  maxlength="1" th:field="*{letraFicha}"><br>
   			<br>
   			Aluno:<br>
-    <select th:field="*{ficha.alunos}" class="form-control">
-       <option th:each="alunos: ${aluno}" th:value="${aluno.id}" th:text="${aluno.name}"></option>
-    </select>
+    <select name="aluno_id">
+  				<option th:each="modalidade : ${modalidades}" th:value="${modalidade.id}" th:text="${modalidade.nome}"></option>
+			</select>
   			Professor:<br>
-    <select th:field="*{ficha.professores}" class="form-control">
-       <option th:each="professores: ${professor}" th:value="${professor.id}" th:text="${professor.name}"></option>
-    </select>
+    <select name="professor_id">
+  				<option th:each="modalidade : ${modalidades}" th:value="${modalidade.id}" th:text="${modalidade.nome}"></option>
+			</select>
   			<br>
-  			Exercícios 1:<br>
-    <select th:field="${ficha.itens}" class="form-control" >
+    <select th:field="${itens.itens}" class="form-control" >
        <option th:each="item: ${itens}" th:value="${itens.id}" th:text="${itens.nome}"></option>
     </select> 
   			<br>
@@ -46,6 +53,8 @@
   			<br>
 			<br>    
 		<input type="submit" value="Inserir">
+		<input type="button" value="Voltar" onClick="history.go(-1)">
 		</form>
+     -->
 	</body>
 </html>

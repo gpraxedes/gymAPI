@@ -26,19 +26,11 @@ public class Ficha {
 	
 	private String fichaLetra;
 	
-	@Nullable
-	@ManyToOne
-    @JoinColumn(name="professor_id", nullable=false)
-	private Professor professor;
+	private Integer professor_id;
 	
-	@Nullable
-	@ManyToOne
-    @JoinColumn(name="aluno_id", nullable=false)
-	private Aluno aluno;
+	private Integer aluno_id;
 	
-	@Nullable
-	@OneToMany(mappedBy="ficha")
-	private List<ItemFicha> itens;
+	private Integer itemFicha_id;
 
 	public String getTipoFicha() {
 		return tipoFicha;
@@ -56,68 +48,36 @@ public class Ficha {
 		this.fichaLetra = fichaLetra;
 	}
 
-//	public Professor getProfessor() {
-//		return professor;
-//	}
-//
-//	public void setProfessor(Professor professor) {
-//		this.professor = professor;
-//	}
-//
-//	public Atleta getAtleta() {
-//		return atleta;
-//	}
-//
-//	public void setAtleta(Atleta atleta) {
-//		this.atleta = atleta;
-//	}
-
-//	public List<ItemFicha> getItens() {
-//		return itens;
-//	}
-//
-//	public void setItem(ItemFicha item) {
-//		this.itens.add(item);
-//	}
-//	
-//	public void setItens(List<ItemFicha> itens) {
-//
-//		for (ItemFicha item : itens) {
-//			setItem(item);
-//		}
-//	}
-
-
 	public Integer getId() {
 		return id;
 	}
 
-	public Professor getProfessor() {
-		return professor;
-	}
-
-	public void setProfessor(Professor professor) {
-		this.professor = professor;
-	}
-
-	public Aluno getAluno() {
-		return aluno;
-	}
-
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
-	}
-
-	public List<ItemFicha> getItens() {
-		return itens;
-	}
-
-	public void setItens(List<ItemFicha> itens) {
-		this.itens = itens;
-	}
-
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Integer getProfessor_id() {
+		return professor_id;
+	}
+
+	public void setProfessor_id(Integer professor_id) {
+		this.professor_id = professor_id;
+	}
+
+	public Integer getAluno_id() {
+		return aluno_id;
+	}
+
+	public void setAluno_id(Integer aluno_id) {
+		this.aluno_id = aluno_id;
+	}
+
+	public Integer getItemFicha_id() {
+		return itemFicha_id;
+	}
+
+	public void setItemFicha_id(Integer itemFicha_id) {
+		this.itemFicha_id = itemFicha_id;
 	}
 	
 }

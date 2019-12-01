@@ -10,7 +10,8 @@
 		</style>
 	</head>
 	<body>
-		<a href="insertProfessor">Inserir Professor</a>
+		<a href="insertProfessor">Inserir Professor</a> |
+	<a href="painelAdm">Dashboard Administrativo</a><br><br>
 		<table style="width:100%">
 			<tr>
 			
@@ -27,11 +28,11 @@
 			    <td th:text="${professor.nome}"></td>
 			    <td th:text="${professor.idade}"></td>
 			    <td th:text="${professor.cpf}"></td>
-			    <td>
-					<th:block th:each="modalidade : ${professor.modalidades}">
-    					<label th:text="${modalidade.nome}"></label>
-  					</th:block>
-				</td>
+			    
+			    <td th:each="modalidade : ${modalidades}"
+      				  th:if="${modalidade.id} == ${professor.modalidade_id}"
+  					  th:text="${modalidade.nome}">
+  				</td >
 			   
 			    <td><a th:href="@{deleteProfessor(id=${professor.id})}">Deletar</a></td>
 			    <td><a th:href="@{updateProfessor(id=${professor.id})}">Alterar</a></td>

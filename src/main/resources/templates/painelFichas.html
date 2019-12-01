@@ -10,14 +10,16 @@
 		</style>
 	</head>
 	<body>
-		<a href="insertFicha">Criar Ficha</a> | <a href="insertItemFicha">Inserir Item para Ficha</a> | <a href="readExercicios">Inserir Exercícios</a>
-		<br/>
+		<a href="insertFicha">Criar Ficha</a> | <a href="readExercicios">Criar Exercícios</a> | <a href="/">Página Inicial</a>
+		<br>
+		<br>
 		<table style="width:100%">
 			<tr>
 			
 			    <th>ID</td>
 			    <th>Letra</td>
 			    <th>Aluno</td>
+			    <th>Visualizar</td>
 			    <th>Excluir?</td>
 			    <th>Alterar?</td>
 			</tr>
@@ -26,6 +28,7 @@
 			    <td th:text="${ficha.letra}"></td>
 			    <td th:text="${ficha.aluno.nome}"></td>
 			   
+			   <td><a th:href="@{getFicha(id=${ficha.id})}">Visualizar</a></td>
 			    <td><a th:href="@{deleteFicha(id=${ficha.id})}">Deletar</a></td>
 			    <td><a th:href="@{updateFicha(id=${ficha.id})}">Alterar</a></td>
 			</tr>

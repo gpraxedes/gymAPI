@@ -1,0 +1,37 @@
+<html>
+	<head>
+	    <title>Inserir Item Ficha</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<form  th:action="/insertItemFicha" method="POST" th:object="${itemFicha}">
+		
+		    ID:<br>
+  			<input type="text" name="id" th:value="*{id}" readOnly="true"><br>
+  			<br>
+		    Exercicio:<br>
+    		<input type="text" name="exercicio"
+  			
+  			th:each="exercicio : ${exercicios}"
+      				  th:if="${exercicio.id} == ${itemFicha.exercicio_id}"
+  			
+  			 th:value="${exercicio.nome}" readOnly="true"><br>
+			<br>
+  			Descricao:<br>
+  			<input type="text" name="id" th:value="*{descricao}" readOnly="true"><br>
+  			<br>
+  			Séries:<br>
+  			<input type="text" name="nome" th:value="*{serie}" readOnly="true"><br>
+  			<br>
+  			Repetições:<br>
+  			<input type="text" name="cpf" th:value="*{repeticao}" readOnly="true"><br>
+  			<br>
+  			Descanso:<br>
+  			<input type="text" name="idade" th:value="*{descanso}" readOnly="true">seg.<br>
+  			<br>
+  			<br>
+  			<input type="submit" value="Deletar">
+			<input type="button" value="Voltar" onClick="history.go(-1)">
+		</form>
+	</body>
+</html>

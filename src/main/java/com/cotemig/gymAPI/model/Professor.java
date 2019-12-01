@@ -29,32 +29,18 @@ public class Professor {
 	private Integer idade;
 
 	private Long cpf;
-
-	@Nullable
-	@OneToMany(mappedBy = "professor", fetch = FetchType.EAGER)
-	@Fetch(value = FetchMode.SUBSELECT)
-	private List<Modalidade> modalidades = new ArrayList<>();
+	
+	private Integer modalidade_id;
 
 //	@OneToMany(mappedBy = "professores")
 //	private List<Ficha> fichas;
 
-	public void setModalidades(List<Modalidade> modalidades) {
-
-		for (Modalidade modalidade : modalidades) {
-			setModalidade(modalidade);
-		}
-	}
 
 //	public void setFicha(Ficha ficha) {
 //		this.fichas.add(ficha);
 //
 //	}
 	
-	public void setModalidade(Modalidade modalidade) {
-		this.modalidades.add(modalidade);
-
-	}
-
 	public String getNome() {
 		return nome;
 	}
@@ -95,8 +81,12 @@ public class Professor {
 		this.id = id;
 	}
 
-	public List<Modalidade> getModalidades() {
-		return modalidades;
+	public Integer getModalidade_id() {
+		return modalidade_id;
 	}
-	
+
+	public void setModalidade_id(Integer modalidade_id) {
+		this.modalidade_id = modalidade_id;
+	}
+
 }

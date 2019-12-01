@@ -17,10 +17,6 @@ public class Exercicio {
 	
 	private String nome;
 	
-	@Nullable
-	@OneToOne(mappedBy = "exercicio")
-	private ItemFicha item;
-	
 	public Integer getId() {
 		return id;
 	}
@@ -31,14 +27,6 @@ public class Exercicio {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public ItemFicha getItem() {
-		return item;
-	}
-
-	public void setItem(ItemFicha item) {
-		this.item = item;
 	}
 
 	public void setId(Integer id) {

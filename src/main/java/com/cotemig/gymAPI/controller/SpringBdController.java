@@ -70,7 +70,7 @@ public class SpringBdController {
 
 		alunoService.insertAluno(aluno);
 
-		return "redirect:";
+		return "redirect:/readAlunos";
 	}
 
 	@RequestMapping(value = "/deleteAluno", method = RequestMethod.GET)
@@ -89,7 +89,7 @@ public class SpringBdController {
 
 		alunoService.deleteAlunoById(aluno.getId());
 
-		return "redirect:";
+		return "redirect:/readAlunos";
 
 	}
 
@@ -109,7 +109,7 @@ public class SpringBdController {
 
 		alunoService.updateAluno(aluno);
 
-		return "redirect:";
+		return "redirect:/readAlunos";
 	}
 
 	@RequestMapping(value = "/readAlunos", method = RequestMethod.GET)
@@ -147,7 +147,7 @@ public class SpringBdController {
 
 		exercicioService.insertExercicio(exercicio);
 
-		return "redirect:";
+		return "redirect:/readExercicios";
 	}
 
 	@RequestMapping(value = "/deleteExercicio", method = RequestMethod.GET)
@@ -166,7 +166,7 @@ public class SpringBdController {
 
 		exercicioService.deleteExercicioById(exercicio.getId());
 
-		return "redirect:";
+		return "redirect:/readExercicios";
 	}
 
 	@RequestMapping(value = "/updateExercicio", method = RequestMethod.GET)
@@ -186,7 +186,7 @@ public class SpringBdController {
 
 		exercicioService.updateExercicio(exercicio);
 
-		return "redirect:";
+		return "redirect:/readExercicios";
 	}
 
 	@RequestMapping(value = "/readExercicios", method = RequestMethod.GET)
@@ -215,7 +215,7 @@ public class SpringBdController {
 
 		fichaService.insertFicha(ficha);
 
-		return "redirect:";
+		return "redirect:/readFichas";
 	}
 
 	@RequestMapping(value = "/deleteFicha", method = RequestMethod.GET)
@@ -233,7 +233,7 @@ public class SpringBdController {
 
 		fichaService.deleteFichaById(ficha.getId());
 
-		return "redirect:";
+		return "redirect:/readFichas";
 	}
 
 	@RequestMapping(value = "/updateFicha", method = RequestMethod.GET)
@@ -252,7 +252,7 @@ public class SpringBdController {
 
 		fichaService.updateFicha(ficha);
 
-		return "redirect:";
+		return "redirect:/readFichas";
 	}
 
 	@RequestMapping(value = "/readFichas", method = RequestMethod.GET)
@@ -337,7 +337,10 @@ public class SpringBdController {
 	@RequestMapping(value = "/insertItemFicha", method = RequestMethod.GET)
 	public ModelAndView insertItemFicha() {
 
-		return new ModelAndView("insertItemFicha", "itemFicha", new ItemFicha());
+		ModelAndView mav = new ModelAndView("insertItemFicha");
+		mav.addObject("itemFicha", new ItemFicha());
+		mav.addObject("exercicios", exercicioService.getAllExercicios());
+		return mav;
 
 	}
 
@@ -351,13 +354,16 @@ public class SpringBdController {
 
 		itemFichaService.insertItemFicha(itemFicha);
 
-		return "redirect:";
+		return "redirect:readFichas";
 	}
 
 	@RequestMapping(value = "/deleteItemFicha", method = RequestMethod.GET)
 	public ModelAndView deleteItemFicha(Integer id) {
 
-		return new ModelAndView("deleteItemFicha", "itemFicha", itemFichaService.getItemFichaById(id).get());
+		ModelAndView mav = new ModelAndView("deleteItemFicha");
+		mav.addObject("itemFicha", itemFichaService.getItemFichaById(id).get());
+		mav.addObject("exercicios", exercicioService.getAllExercicios());
+		return mav;
 	}
 
 	@RequestMapping(value = "/deleteItemFicha", method = RequestMethod.POST)
@@ -370,14 +376,17 @@ public class SpringBdController {
 
 		itemFichaService.deleteItemFichaById(itemFicha.getId());
 
-		return "redirect:";
+		return "redirect:readItensFicha";
 	}
 
 	@RequestMapping(value = "/updateItemFicha", method = RequestMethod.GET)
 	public ModelAndView updateItemFicha(Integer id) {
 
-		return new ModelAndView("updateItemFicha", "itemFicha", itemFichaService.getItemFichaById(id).get());
-
+		ModelAndView mav = new ModelAndView("updateItemFicha");
+		mav.addObject("itemFicha", itemFichaService.getItemFichaById(id).get());
+		mav.addObject("exercicios", exercicioService.getAllExercicios());
+		return mav;
+		
 	}
 
 	@RequestMapping(value = "/updateItemFicha", method = RequestMethod.POST)
@@ -390,15 +399,16 @@ public class SpringBdController {
 
 		itemFichaService.updateItemFicha(itemFicha);
 
-		return "redirect:";
+		return "redirect:/readItensFicha";
 	}
 
 	// por id
 	@RequestMapping(value = "/readItensFicha", method = RequestMethod.GET)
-	public ModelAndView readItemFichas() {
+	public ModelAndView readItensFicha() {
 
-		ModelAndView mav = new ModelAndView("readItemFichas");
+		ModelAndView mav = new ModelAndView("readItensFicha");
 		mav.addObject("itensFicha", itemFichaService.getAllItensFicha());
+		mav.addObject("exercicios", exercicioService.getAllExercicios());
 		return mav;
 	}
 
@@ -421,7 +431,7 @@ public class SpringBdController {
 
 		modalidadeService.insertModalidade(modalidade);
 
-		return "redirect:";
+		return "redirect:/readModalidades";
 	}
 
 	@RequestMapping(value = "/deleteModalidade", method = RequestMethod.GET)
@@ -440,7 +450,7 @@ public class SpringBdController {
 
 		modalidadeService.deleteModalidadeById(modalidade.getId());
 
-		return "redirect:";
+		return "redirect:/readModalidades";
 	}
 
 	@RequestMapping(value = "/updateModalidade", method = RequestMethod.GET)
@@ -460,7 +470,7 @@ public class SpringBdController {
 
 		modalidadeService.updateModalidade(modalidade);
 
-		return "redirect:";
+		return "redirect:/readModalidades";
 	}
 
 	@RequestMapping(value = "/readModalidades", method = RequestMethod.GET)
@@ -495,7 +505,7 @@ public class SpringBdController {
 
 		professorService.insertProfessor(professor);
 
-		return "redirect:";
+		return "redirect:/readProfessores";
 	}
 
 	@RequestMapping(value = "/deleteProfessor", method = RequestMethod.GET)
@@ -507,8 +517,9 @@ public class SpringBdController {
 		Professor professor = professorService.getProfessorById(id).get();
 		
 		mav.addObject("professor", professor);
-		//mav.addObject("modalidades", modalidadeService.getAllModalidades());
-		mav.addObject("modalidades", professor.getModalidades());
+		mav.addObject("modalidades", modalidadeService.getAllModalidades());
+
+		//mav.addObject("modalidade", modalidadeService.getModalidadeById(professor.getModalidade_id()));
 
 		return mav;
 	}
@@ -523,7 +534,7 @@ public class SpringBdController {
 
 		professorService.deleteProfessorById(professor.getId());
 
-		return "redirect:";
+		return "redirect:/readProfessores";
 	}
 
 	@RequestMapping(value = "/updateProfessor", method = RequestMethod.GET)
@@ -548,7 +559,7 @@ public class SpringBdController {
 
 		professorService.updateProfessorById(professor.getId(), professor);
 
-		return "redirect:";
+		return "redirect:/readProfessores";
 	}
 
 	@RequestMapping(value = "/readProfessores", method = RequestMethod.GET)
