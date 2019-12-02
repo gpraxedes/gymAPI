@@ -7,9 +7,8 @@
 	
 		<a href="insertItemFicha">Criar itens para ficha</a> | 
 		<a href="readItensFicha">Ver itens para ficha</a> | 
-		<a href="readExercicios">Criar Exercícios</a>
-		<br>
-		<br>
+		<a href="readExercicios">Criar Exercícios</a> |
+		<a href="painelFichas">Dashboard Fichas</a> <br><br>
 	
 		<form  th:action="@{/insertFicha}" method="POST" th:object="${ficha}">
 		
@@ -31,7 +30,7 @@
 			</select>
   			<br>
   			<br>
-  			Exercícios 1:<br>
+  			Item 1:<br>
     <select name="itemExercicio1_id">
   				<option th:each="itemFicha : ${itensFicha}" 
   				th:value="${itemFicha.id}" 
@@ -42,7 +41,7 @@
 			</select> 
   			<br>
   			<br>
-  			Exercícios 2:<br>
+  			Item 2:<br>
    <select name="itemExercicio2_id">
   				<option th:each="itemFicha : ${itensFicha}" 
   				th:value="${itemFicha.id}" 
@@ -53,18 +52,18 @@
 			</select> 
   			<br>
   			<br>
-			Exercícios 3:<br>
+			Item 3:<br>
   			 <select name="itemExercicio3_id">
   				<option th:each="itemFicha : ${itensFicha}" 
   				th:value="${itemFicha.id}" 
-  				th:text="'Exercício:' + ${itemFicha.exercicio_id} + 
+  				th:text="'Exercício:' + ${itemFicha.exercicio_id} +
   				'|Séries:' + ${itemFicha.serie} + 
   				'|Repetição:' + ${itemFicha.repeticao} + 
   				'|Descanso:' + ${itemFicha.descanso}"></option>
 			</select> 
   			<br>
   			<br>
-  			Exercícios 4:<br>
+  			Item 4:<br>
      <select name="itemExercicio4_id">
   				<option th:each="itemFicha : ${itensFicha}" 
   				th:value="${itemFicha.id}" 
@@ -75,6 +74,7 @@
 			</select> 
   			<br>
   			<br>  
+  			
 		<input type="submit" value="Inserir">
 		<input type="button" value="Voltar" onClick="history.go(-1)">
 		</form>

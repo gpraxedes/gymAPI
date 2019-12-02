@@ -33,7 +33,7 @@
   			 th:value="${professor.nome}" readOnly="true"><br>
   			<br>
   			
-  			Exercícios 1:<br>
+  			Item 1:<br>
     		<input type="text" name="itemExercicio1" th:each="itemFicha : ${itensFicha}" 
   				th:if="${itemFicha.id} == ${ficha.itemExercicio1_id}"
   				
@@ -43,7 +43,7 @@
   				'|Descanso:' + ${itemFicha.descanso}" readOnly="true">
   			<br>
   			<br>
-  			Exercícios 2:<br>
+  			Item 2:<br>
    			<input type="text" name="itemExercicio1" th:each="itemFicha : ${itensFicha}" 
   				th:if="${itemFicha.id} == ${ficha.itemExercicio2_id}"
   				
@@ -53,7 +53,7 @@
   				'|Descanso:' + ${itemFicha.descanso}" readOnly="true">
   			<br>
   			<br>
-			Exercícios 3:<br>
+			Item 3:<br>
   			 <input type="text" name="itemExercicio1" th:each="itemFicha : ${itensFicha}" 
   				th:if="${itemFicha.id} == ${ficha.itemExercicio3_id}"
   				
@@ -63,7 +63,7 @@
   				'|Descanso:' + ${itemFicha.descanso}" readOnly="true">
   			<br>
   			<br>
-  			Exercícios 4:<br>
+  			Item 4:<br>
     		<input type="text" name="itemExercicio1" th:each="itemFicha : ${itensFicha}" 
   				th:if="${itemFicha.id} == ${ficha.itemExercicio4_id}"
   				
