@@ -4,7 +4,7 @@
 	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 	<body>
-		<form  action="/getFicha" method="POST" modelAttribute="ficha">
+		<form  action="/deleteFicha" method="POST" modelAttribute="ficha">
 		
 		    ID:<br>
   			<input type="text" name="id" th:value="${ficha.id}" readOnly="true"><br>
@@ -73,6 +73,7 @@
   				'|Descanso:' + ${itemFicha.descanso}" readOnly="true">
   			<br>
   			<br>
+  			<input type="submit" value="Deletar">
 			<input type="button" value="Voltar" onClick="history.go(-1)">
 		</form>
 	</body>
